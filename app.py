@@ -20,9 +20,23 @@ def run(args):
 
     @app.route('/predict', methods=['POST'])
     def predict():
+
+        """
+        
+        This function make prediction and converts it to json file.
+
+        Output:
+
+            jsonized file.
+        
+        """
+        
+        # Read an image
         im = json.loads(request.data)['im']
+        # Convert to base64
         jpg_original = base64.b64decode(im)
 
+        # Get prediction results
         results = get_prediction(model = model, cls_names = cls_names, image_bytes=jpg_original)
 
         return jsonify({"results": results})
