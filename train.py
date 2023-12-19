@@ -220,7 +220,6 @@ def run(args):
     # Initialize a trainer
     trainer = pl.Trainer(max_epochs = args.epochs, accelerator="gpu", devices = args.devices, strategy = "ddp", 
                          logger = wandb_logger,
-                         fast_dev_run = True,
                          callbacks = [EarlyStopping(monitor = "val_loss", mode = "min", patience = 3), ImagePredictionLogger(val_samples, cls_names),
                                       ModelCheckpoint(monitor = "val_loss", dirpath = args.save_model_path, filename = f"{args.data}_best_model_{args.model_name}_new_classes")])
 
@@ -239,11 +238,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = "Image Classification Training Arguments")
     
     # Add arguments to the parser
-    # parser.add_argument("-da", "--data", type = str, default = "genesis30_50", help = "Data name")
-    # parser.add_argument("-da", "--data", type = str, default = "new_hyundai", help = "Data name")
-    parser.add_argument("-da", "--data", type = str, default = "new_kia", help = "Data name")
+    parser.add_argument("-da", "--data", type = str, default = "new_kia", help = "Data name") # new_hyundai genesis30_50
     parser.add_argument("-r", "--root", type = str, default = "/mnt/data/bekhzod/recycle_park/", help = "Data name")
-    parser.add_argument("-bs", "--batch_size", type = int, default = 8, help = "Mini-batch size")
+    parser.add_argument("-bs", "--batch_size", type = int, default = 2, help = "Mini-batch size")
     parser.add_argument("-is", "--inp_im_size", type = tuple, default = (224, 224), help = "Input image size")
     parser.add_argument("-mn", "--model_name", type = str, default = 'rexnet_150', help = "Model name for backbone")
     parser.add_argument("-d", "--devices", type = int, default = 1, help = "Number of GPUs for training")
