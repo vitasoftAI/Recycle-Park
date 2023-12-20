@@ -19,6 +19,24 @@ Then activate the environment using the following command:
 conda activate speed
 ```
 
+3. Data Visualization
+
+a) Genesis
+
+
+b) KIA
+
+
+c) Hyundai
+![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/6035063c-e7dd-4fd5-a388-8a9251d2de05)
+
+
+
+
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/122a346b-1d4f-4f52-9f80-c20f30e7f79a)
+
+
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/cb2b2dcc-0c58-4942-af65-0656aa0ea288)
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/8a5c9cca-0083-4aa6-a488-80ce68414826)
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/196483c9-c295-4af5-a417-881bd9106b4f)
