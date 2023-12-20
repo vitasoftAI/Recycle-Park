@@ -23,11 +23,15 @@ conda activate speed
 
 a) Genesis
 
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/156672f8-de64-49d0-9df5-caa606b5829a)
 
 b) KIA
 
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/c10ff203-5d1a-47b5-8c28-e3828d2c4615)
+
 
 c) Hyundai
+
 ![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/6035063c-e7dd-4fd5-a388-8a9251d2de05)
 
 
