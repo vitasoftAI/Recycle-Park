@@ -29,16 +29,28 @@ b) KIA
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/c10ff203-5d1a-47b5-8c28-e3828d2c4615)
 
+c) Hyundai
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/122a346b-1d4f-4f52-9f80-c20f30e7f79a)
+
+4. Train the AI model using the following PyTorch Lightning training script:
+
+a) Genesis
+
+```python
+python train.py --data "genesis30_50" --batch_size = 64 devices = 4 --epochs 50
+```
+
+b) KIA
+
+```python
+python train.py --data "new_kia" --batch_size = 64 devices = 4 --epochs 50
+```
+
 
 c) Hyundai
 
-![image](https://github.com/bekhzod-olimov/SportsImageClassification/assets/50166164/6035063c-e7dd-4fd5-a388-8a9251d2de05)
 
-
-
-
-
-![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/122a346b-1d4f-4f52-9f80-c20f30e7f79a)
 
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/cb2b2dcc-0c58-4942-af65-0656aa0ea288)
