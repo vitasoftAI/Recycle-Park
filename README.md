@@ -41,19 +41,24 @@ a) Genesis
 python train.py --data "genesis30_50" --batch_size = 64 devices = 4 --epochs 50
 ```
 
+Training process progress:
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/cb2b2dcc-0c58-4942-af65-0656aa0ea288)
+
 b) KIA
 
 ```python
 python train.py --data "new_kia" --batch_size = 64 devices = 4 --epochs 50
 ```
 
-
 c) Hyundai
 
+```python
+python train.py --data "new_hyundai" --batch_size = 64 devices = 4 --epochs 50
+```
 
 
 
-![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/cb2b2dcc-0c58-4942-af65-0656aa0ea288)
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/8a5c9cca-0083-4aa6-a488-80ce68414826)
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/196483c9-c295-4af5-a417-881bd9106b4f)
 
