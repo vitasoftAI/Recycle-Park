@@ -80,3 +80,9 @@ a) Genesis
 ```python
 python gradio_demo_gen.py
 ```
+
+b) KIA
+
+```python
+python gradio_demo_kia.py
+```
