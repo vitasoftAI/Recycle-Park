@@ -35,6 +35,10 @@ c) Hyundai
 
 4. Train the AI model using the following PyTorch Lightning training script:
 
+Train process arguments can be changed based on the following information:
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/df154acb-d49c-4096-84b7-7c1d632d6a19)
+
 a) Genesis
 
 ```python
