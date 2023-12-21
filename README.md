@@ -68,3 +68,8 @@ python train.py --data "new_hyundai" --batch_size = 64 devices = 4 --epochs 50
 Training process progress:
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/8a5c9cca-0083-4aa6-a488-80ce68414826)
+
+5. Conduct inference using the trained model:
+```python
+python inference.py --data_name DATA_NAME --batch_size = 64 device = "cuda:0"
+```
