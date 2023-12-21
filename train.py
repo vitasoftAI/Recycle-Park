@@ -239,16 +239,16 @@ if __name__ == "__main__":
     
     # Add arguments to the parser
     parser.add_argument("-da", "--data", type = str, default = "new_kia", help = "Data name") # new_hyundai genesis30_50
-    parser.add_argument("-r", "--root", type = str, default = "/mnt/data/bekhzod/recycle_park/", help = "Data name")
-    parser.add_argument("-bs", "--batch_size", type = int, default = 2, help = "Mini-batch size")
+    parser.add_argument("-r", "--root", type = str, default = "path/to/data", help = "Data name")
+    parser.add_argument("-bs", "--batch_size", type = int, default = 128, help = "Mini-batch size")
     parser.add_argument("-is", "--inp_im_size", type = tuple, default = (224, 224), help = "Input image size")
     parser.add_argument("-mn", "--model_name", type = str, default = 'rexnet_150', help = "Model name for backbone")
-    parser.add_argument("-d", "--devices", type = int, default = 1, help = "Number of GPUs for training")
+    parser.add_argument("-d", "--devices", type = int, default = 4, help = "Number of GPUs for training")
     parser.add_argument("-l", "--lang", type = str, default = "en", help = "Language to be used to run the code")
     parser.add_argument("-lr", "--learning_rate", type = float, default = 3e-4, help = "Learning rate value")
     parser.add_argument("-e", "--epochs", type = int, default = 30, help = "Train epochs number")
     parser.add_argument("-sm", "--save_model_path", type = str, default = "saved_models", help = "Path to the directory to save a trained model")
-    parser.add_argument("-wk", "--wandb_key", type = str, default = "3204eaa1400fed115e40f43c7c6a5d62a0867ed1", help = "Wandb key can be obtained from wandb.ai")
+    parser.add_argument("-wk", "--wandb_key", type = str, default = "api_key", help = "Wandb key can be obtained from wandb.ai")
     parser.add_argument("-sd", "--save_data_path", type = str, default = "saved_dls", help = "Path to the directory to save the dataset information")
     
     # Parse the added arguments
