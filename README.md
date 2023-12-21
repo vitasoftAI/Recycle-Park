@@ -73,3 +73,10 @@ Training process progress:
 ```python
 python inference.py --data_name DATA_NAME --batch_size = 64 device = "cuda:0"
 ```
+
+6. Demo using pretrained AI models:
+a) Genesis
+
+```python
+python gradio_demo_gen.py
+```
