@@ -29,6 +29,8 @@ b) KIA
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/c10ff203-5d1a-47b5-8c28-e3828d2c4615)
 
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/0143fa27-22d8-4d2f-adf6-92b13cbd826e)
+
 c) Hyundai
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/122a346b-1d4f-4f52-9f80-c20f30e7f79a)
