@@ -82,6 +82,8 @@ a) Genesis
 python gradio_demo_gen.py
 ```
 
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/8480b0f9-ea14-468f-a58c-99ebb9cb6dee)
+
 b) KIA
 
 ```python
@@ -97,4 +99,3 @@ python gradio_demo_hy.py
 ```
 
 ![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/b2c912ca-9b61-4fdc-9ac5-faaef60146cf)
-
