@@ -75,6 +75,7 @@ python inference.py --data_name DATA_NAME --batch_size = 64 device = "cuda:0"
 ```
 
 6. Demo using pretrained AI models:
+
 a) Genesis
 
 ```python
@@ -92,3 +93,6 @@ c) Hyundai
 ```python
 python gradio_demo_hy.py
 ```
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/b2c912ca-9b61-4fdc-9ac5-faaef60146cf)
+
