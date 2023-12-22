@@ -142,11 +142,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description = "Object Classification Demo")
     
     # Add arguments
-    parser.add_argument("-r", "--root", type = str, default = "/home/ubuntu/workspace/bekhzod/recycle_park/", help = "Root for sample images")
+    parser.add_argument("-r", "--root", type = str, default = "path/to/data", help = "Root for sample images")
     parser.add_argument("-dt", "--data", type = str, default = "new_kia", help = "Dataset name")
-    parser.add_argument("-dv", "--device", type = str, default = "cuda:1", help = "GPU device name")
     parser.add_argument("-mn", "--model_name", type = str, default = "rexnet_150", help = "Model name for backbone")
-    parser.add_argument("-cp", "--checkpoint_path", type = str, default = "saved_models/new_kia_best_model_rexnet_150_new_classes.ckpt", help = "Path to the checkpoint")
+    parser.add_argument("-cp", "--checkpoint_path", type = str, default = "path/to/ckpt", help = "Path to the checkpoint")
     
     # Parse the arguments
     args = parser.parse_args() 
