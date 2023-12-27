@@ -107,4 +107,8 @@ a) Run the application in the terminal:
 ```python
 python app.py
 ```
+
+![image](https://github.com/vitasoftAI/Recycle-Park/assets/50166164/09001344-a4f4-493a-b2bd-d454de305828)
+
+
 b) Go to the flask.ipynb file and run the cell;
