@@ -102,6 +102,9 @@ python gradio_demo_hy.py
 
 7. Flask application:
 
+a) Run the application in the terminal:
+
 ```python
 python app.py
 ```
+b) Go to the flask.ipynb file and run the cell;
