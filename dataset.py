@@ -1,13 +1,27 @@
+# Import libraries
 import torch, os, numpy as np, pandas as pd, pickle
-from glob import glob
-from PIL import Image, ImageFile
+from glob import glob; from PIL import Image, ImageFile
 from torch.utils.data import random_split, Dataset, DataLoader
 from torchvision import transforms as T
 ImageFile.LOAD_TRUNCATED_IMAGES = True
-
+# Set manual seed
 torch.manual_seed(2023)
 
 class CustomDataset(Dataset):
+
+    """
+    
+    This class gets several parameters and returns dataset to be trained.
+
+    Parameters:
+
+        root             - path to data with images, str;
+        data             - data type, str;
+        lang             - language to print, str;
+        transformations  - transformations to be applied, transforms object;
+        im_files         - image extension files, list -> str.    
+    
+    """
     
     def __init__(self, root, data, lang, transformations = None, im_files = [".jpg", ".png", ".jpeg"]):
         super().__init__()
