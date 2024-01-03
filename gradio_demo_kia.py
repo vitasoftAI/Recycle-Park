@@ -1,8 +1,7 @@
 # Import libraries
 import os, torch, pickle, timm, gdown, argparse, gradio as gr, numpy as np
 from transformations import get_tfs
-from glob import glob
-from PIL import Image, ImageFont
+from glob import glob; from PIL import Image, ImageFont
 from torchvision.datasets import ImageFolder
 from torchvision import transforms as T
 from pytorch_grad_cam import GradCAM
@@ -26,26 +25,7 @@ def load_model(model_name, num_classes, checkpoint_path):
         m               - a model with pretrained weights and in an evaluation mode, torch model object;
     
     """
-    
-#     # Download from the checkpoint path
-#     if os.path.isfile(checkpoint_path): print("Pretrained model is already downloaded!"); pass
-    
-#     # If the checkpoint does not exist
-#     else: 
-#         print("Pretrained checkpoint is not found!")
-        
-#         # Set url path
-#         url = "https://drive.google.com/file/d/1T6joFbxQN1aWesmCOWAn07t8kmoabIH8/view?usp=share_link"
-        
-#         # Get file id
-#         file_id = url.split("/")[-2]
-        
-#         # Initialize prefix to download
-#         prefix = "https://drive.google.com/uc?/export=download&id="
-        
-#         # Download the checkpoint
-#         gdown.download(prefix + file_id, checkpoint_path, quiet = False)
-    
+       
     # Create a model based on the model name and number of classes
     m = timm.create_model(model_name, num_classes = num_classes)
     
@@ -118,10 +98,15 @@ def run(args):
         
         # Get visualization
         visualization = show_cam_on_image((im * 255).cpu().numpy().transpose([1, 2, 0]).astype(np.uint8) / 255, grayscale_cam, image_weight = 0.55, colormap = 2, use_rgb = True)
+
+        # Get predictions
         pred = torch.nn.functional.softmax(model(im.unsqueeze(0).data), dim = 1)
+        # Get the top predictions
         vals, inds = torch.topk(pred, k = 5)
+        # Squeeze the topk values and indices
         vals, inds = vals.squeeze(0), inds.squeeze(0)
-        
+
+        # Get information to print
         out1 = f"{vals[0]} 확률로 top1 파트번호 -> {cls_names[(inds[0].item())]}"
         out2 = f"{vals[1]} 확률로 top2 파트번호 -> {cls_names[(inds[1].item())]}"
         out3 = f"{vals[2]} 확률로 top3 파트번호 -> {cls_names[(inds[2].item())]}"
