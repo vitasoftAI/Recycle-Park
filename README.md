@@ -32,6 +32,17 @@ conda activate speed
 pip install -r requirements.txt
 ```
 
+b) Create a virtual environment using yml file:
+
+```python
+conda env create -f environment.yml
+```
+
+Then activate the environment using the following command:
+```python
+conda activate speed
+```
+
 3. Data Visualization
 
 a) Genesis
