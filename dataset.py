@@ -3,6 +3,8 @@ import torch, os, numpy as np, pandas as pd, pickle
 from glob import glob; from PIL import Image, ImageFile
 from torch.utils.data import random_split, Dataset, DataLoader
 from torchvision import transforms as T
+
+# Option to get large image files
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 # Set manual seed
 torch.manual_seed(2023)
@@ -28,13 +30,18 @@ class CustomDataset(Dataset):
         self.im_paths = glob(f"{root}/{data}/*/*{[im_file for im_file in im_files]}")
         if lang == "en": print("Obtaining images from the folders...")
         elif lang == "ko": print("이미지 가져오는 중입니다...")
-        
+
+        # Set list to get class names
         self.cls_names = []
+        # Go through every image path
         for idx, im_path in enumerate(self.im_paths):
+            # Get class name
             cls_name = self.get_dir_name(im_path).split("/")[-1]
             if cls_name not in self.cls_names: self.cls_names.append(cls_name)
             
+        # Create class names dictionary
         self.classes_dict = {cls_name: i for cls_name, i in zip(self.cls_names, range(len(self.cls_names)))}
+        # Set the transformations to be applied
         self.transformations = transformations
         
     def __len__(self): return len(self.im_paths)
