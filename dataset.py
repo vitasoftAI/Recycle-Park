@@ -35,7 +35,7 @@ class CustomDataset(Dataset):
         self.cls_names = []
         # Go through every image path
         for idx, im_path in enumerate(self.im_paths):
-            # Get class name
+            # Get the class name
             cls_name = self.get_dir_name(im_path).split("/")[-1]
             if cls_name not in self.cls_names: self.cls_names.append(cls_name)
             
@@ -66,7 +66,9 @@ class CustomDataset(Dataset):
             if cls_name in di: di[cls_name] += 1
             else: di[cls_name] = 1
         
+        # Set the values for the image count and threshold
         im_count, threshold = 0, 30
+        
         for cls_name, count in di.items():
             if count < threshold: im_count += 1
             print(f"Class {cls_name} has {count} images.")           
@@ -74,10 +76,13 @@ class CustomDataset(Dataset):
         
         return di
     
+    # This function gets directory name based on the image path
     def get_dir_name(self, path): return os.path.dirname(path)
 
+    # This function gets image label based on the image path
     def get_im_label(self, path): return self.classes_dict[str(self.get_dir_name(path).split("/")[-1])]
 
+    # This function gets information based on the classes dictionary 
     def get_cls_info(self): return list(self.classes_dict.keys()), len(self.classes_dict)
     
     def get_ims_paths(self, idx):
