@@ -44,13 +44,25 @@ class CustomDataset(Dataset):
         # Set the transformations to be applied
         self.transformations = transformations
         
+    # Get the number of images in the dataset 
     def __len__(self): return len(self.im_paths)
 
     def get_cls_len(self):
+
+        """
+
+        This class return dictionary with class names.
         
+        """
+        
+        # Set the dictionary
         di = {}
+        # Go through every image path
         for idx, im in enumerate(self.im_paths):
+            # Get the class name based on the image path
             cls_name = self.get_dir_name(im).split("/")[-1]
+            
+            # Add the class name to the dictionary
             if cls_name in di: di[cls_name] += 1
             else: di[cls_name] = 1
         
