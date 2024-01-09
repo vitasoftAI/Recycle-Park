@@ -98,9 +98,11 @@ class CustomDataset(Dataset):
         Outputs:
 
             qry_im_path      - image path of an query image, str;
-            qry_im_lbl, pos_im_path, pos_im_lbl, neg_im_path, neg_im_lbl
-
-            
+            qry_im_lbl       - class label of an query image, int;
+            pos_im_path      - image path of a positive image, str;
+            pos_im_lbl       - class label of a positive image, int;
+            neg_im_path      - image path of a negative image, str;
+            neg_im_lbl       - class label of a negative image, int;        
         
         """
         
