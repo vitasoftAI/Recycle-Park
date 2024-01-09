@@ -86,6 +86,23 @@ class CustomDataset(Dataset):
     def get_cls_info(self): return list(self.classes_dict.keys()), len(self.classes_dict)
     
     def get_ims_paths(self, idx):
+
+        """
+
+        This function gets an index and returns meta data to train an AI model.
+
+        Parameter:
+
+            idx              - index, int.
+
+        Outputs:
+
+            qry_im_path      - image path of an query image, str;
+            qry_im_lbl, pos_im_path, pos_im_lbl, neg_im_path, neg_im_lbl
+
+            
+        
+        """
         
         qry_im_path = self.im_paths[idx]
         qry_im_lbl = self.get_dir_name(qry_im_path).split("/")[-1]
