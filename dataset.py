@@ -3,6 +3,8 @@ import torch, os, numpy as np, pandas as pd, pickle
 from glob import glob; from PIL import Image, ImageFile
 from torch.utils.data import random_split, Dataset, DataLoader
 from torchvision import transforms as T
+
+# Option to get large image files
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 # Set manual seed
 torch.manual_seed(2023)
@@ -28,26 +30,45 @@ class CustomDataset(Dataset):
         self.im_paths = glob(f"{root}/{data}/*/*{[im_file for im_file in im_files]}")
         if lang == "en": print("Obtaining images from the folders...")
         elif lang == "ko": print("이미지 가져오는 중입니다...")
-        
+
+        # Set list to get class names
         self.cls_names = []
+        # Go through every image path
         for idx, im_path in enumerate(self.im_paths):
+            # Get the class name
             cls_name = self.get_dir_name(im_path).split("/")[-1]
             if cls_name not in self.cls_names: self.cls_names.append(cls_name)
             
+        # Create class names dictionary
         self.classes_dict = {cls_name: i for cls_name, i in zip(self.cls_names, range(len(self.cls_names)))}
+        # Set the transformations to be applied
         self.transformations = transformations
         
+    # Get the number of images in the dataset 
     def __len__(self): return len(self.im_paths)
 
     def get_cls_len(self):
+
+        """
+
+        This class return dictionary with class names.
         
+        """
+        
+        # Set the dictionary
         di = {}
+        # Go through every image path
         for idx, im in enumerate(self.im_paths):
+            # Get the class name based on the image path
             cls_name = self.get_dir_name(im).split("/")[-1]
+            
+            # Add the class name to the dictionary
             if cls_name in di: di[cls_name] += 1
             else: di[cls_name] = 1
         
+        # Set the values for the image count and threshold
         im_count, threshold = 0, 30
+        
         for cls_name, count in di.items():
             if count < threshold: im_count += 1
             print(f"Class {cls_name} has {count} images.")           
@@ -55,13 +76,35 @@ class CustomDataset(Dataset):
         
         return di
     
+    # This function gets directory name based on the image path
     def get_dir_name(self, path): return os.path.dirname(path)
 
+    # This function gets image label based on the image path
     def get_im_label(self, path): return self.classes_dict[str(self.get_dir_name(path).split("/")[-1])]
 
+    # This function gets information based on the classes dictionary 
     def get_cls_info(self): return list(self.classes_dict.keys()), len(self.classes_dict)
     
     def get_ims_paths(self, idx):
+
+        """
+
+        This function gets an index and returns meta data to train an AI model.
+
+        Parameter:
+
+            idx              - index, int.
+
+        Outputs:
+
+            qry_im_path      - image path of an query image, str;
+            qry_im_lbl       - class label of an query image, int;
+            pos_im_path      - image path of a positive image, str;
+            pos_im_lbl       - class label of a positive image, int;
+            neg_im_path      - image path of a negative image, str;
+            neg_im_lbl       - class label of a negative image, int;        
+        
+        """
         
         qry_im_path = self.im_paths[idx]
         qry_im_lbl = self.get_dir_name(qry_im_path).split("/")[-1]
