@@ -1,3 +1,4 @@
+# Import libraries
 import io, json, timm, base64, torch, argparse, pickle
 from torchvision import models
 from PIL import Image
@@ -5,6 +6,7 @@ from flask import Flask, jsonify, request
 from transformations import get_tfs
 from gradio_demo_gen import load_model
 
+# Initialize flask
 app = Flask(__name__)
 
 def run(args):
