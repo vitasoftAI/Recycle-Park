@@ -11,8 +11,11 @@ app = Flask(__name__)
 
 def run(args):
 
+    # Get class names
     with open(f"saved_dls/{args.data}_cls_names_new_classes.pkl", "rb") as f: cls_names = pickle.load(f)
+    # Get transformations
     tfs = get_tfs((224, 224))[1]
+    # Initialize model and load the trained weights
     model = load_model(args.model_name, len(cls_names), f"saved_models/{args.data}_best_model_rexnet_150_new_classes.ckpt")
 
     @app.route('/predict', methods=['POST'])
